@@ -1,83 +1,63 @@
 <!--Start by setting the document type-->
 <!DOCTYPE html>
 <html lang="en">
-<!--HTML begins the code block-->
 
-<!--This creates a title on the Web Browser-->
+<!--Add title to the Browser tab-->
 <head>
-    <title>My first Web Page</title>
+    <title>Solo Car Fan Page</title>
 </head>
 
-<!--All of your website structure goes here-->
+<!--All website structure here-->
 <body>
 
 <!-- h1 creates a big header-->
-    <h1>Hello, HTML Tags!</h1>
+    <h1>Electrameccanica Solo: Radically Different</h1>
 
 <!--p separates paragraphs-->
-    <p>This is a paragraph with some <b>bold text</b> inside it.</p>
+    <p>The <b>revolutionary</b> SOLO is a vehicle designed to be a single-passenger,
+        all-electric commuter that reduces waste and minimizes carbon footprint.</p>
+
+<!--href is the link itself, the text inside the a is what text will display for the link-->
+<p>Meet the most <b>economical</b> car: <a href="https://www.emvauto.com/solo">Visit Solo</a></p>
+
+<!--The link inside the paragraph is embedded in the image due to the location of the closing markup,
+    img is used to place an image, src is the source of the image, alt is alternative text,
+    title attaches a title to the image-->
+    <p><a href="https://www.emvauto.com/solo">
+    <img src="Solo.jpg" height="412" width="347"
+            alt="Top Down View of Red Solo Car" title="Solo Electric Car"></a></p>
+<!--height and width of image is native divided by three-->
 
 <!--h2 is a smaller sized header-->
-    <h2>A list of front-end web technologies</h2>
+    <h2>What makes this car special?</h2>
 
 <!--ul represents bullet point list-->
     <ul>
 <!--li represents a list item-->
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
+        <li>Single Seat!</li>
+        <li>Three Wheels!</li>
+        <li>All Electric!</li>
+        <li>100 Mile Range!</li>
+        <li>Sold for less than 20K!</li>
     </ul>
-<!--Always close your markups-->
 
-<!--b is for bold, I is for italics-->
-    <p>You <b>must</b> watch the new <i>Dr Who</i> episode!</p>
-<!--p separates into a new line, u is for underline-->
-    <p>This Page Malformed by <u>3rd</u></p>
+<!--include a header when transferring from sections of the website-->
+    <h2>Solo Specs:</h2>
 
-<!--h2 is a smaller sized header-->
-    <h2>Things I'll Learn</h2>
-
-<!--ol represents a numbered list-->
-    <ol>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Curl</li>
-        <li>SQLite</li>
-    </ol>
-
-<!--a is used to create links to other sites, files, locations-->
-    <a href="https://www.minneapolis.edu">MCTC</a>
-<!--p moves the link to a new line-->
-    <p><a href="https://www.stackoverflow.com">Stack Overflow</a></p>
-
-    <p><a href="Hello.html">To Home Page</a></p>
-<!--href is the link itself, the text inside the a is what text will display for the link-->
-    <p><a href="https://www.w3schools.com/">W3Schools</a></p>
-
-<!--adding a table-->
-    <table>
-<!--th represents the table headers, tr represents the table row-->
-        <tr><th>Radio Station</th><th>Frequency</th></tr>
-<!--td represent the table data-->
-        <tr><td>The Current</td><td>89.3</td></tr>
-        <tr><td>KFAI</td><td>90.3</td></tr>
-    </table>
-
+<!--separate the table with a paragraph space-->
     <p>
+<!--markup table identifies where a table begins-->
     <table>
-        <tr><th>Fish</th><th>Habitat</th></tr>
-        <tr><td>Trout</td><td>River</td></tr>
-        <tr><td>Shark</td><td>Ocean</td></tr>
-        <tr><td>Walleye</td><td>Lake</td></tr>
+<!--tr is a Table Row, th is a Table Header-->
+        <tr><th>Feature</th><th>Stat</th></tr>
+<!--td is table data, each row is seperated by tr-->
+        <tr><td>Cargo Space</td><td>4 Cubic Feet</td></tr>
+        <tr><td>Top Speed</td><td>80 Mph</td></tr>
+        <tr><td>Weight</td><td>1,700 Lbs</td></tr>
+        <tr><td>Range</td><td>100 Miles</td></tr>
+        <tr><td>Fast Charge</td><td>3 Hours</td></tr>
     </table>
     </p>
-
-    <b>Bold text</b>
-    <i>Italic text</i>
-    <u>Underlined</u>
-
-
 
 <!--close all open markups-->
 </body>
