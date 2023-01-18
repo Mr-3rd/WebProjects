@@ -1,0 +1,62 @@
+
+/*body is called a selector, it selects sections
+    of HTML to apply the bracketed styles*/
+body {
+    /*Changes the Background color to a dark yellow*/
+    background-color: darkgoldenrod;
+    /*Changes the font style*/
+    font-family: "Gill Sans", sans-serif;
+    /*Changes the font size*/
+    font-size: x-large;
+    /*Changes the font color*/
+    color: #444444;
+}
+
+/*Change the style of your headers*/
+h1 {
+    /*Aligns text*/
+    text-align: center;
+    /*Create a size based on pixel depth*/
+    font-size: 48px;
+}
+
+/*Change the style of your images*/
+img {
+    /*This adds rounded edges to images*/
+    border-radius: 20px;
+}
+
+
+ol {
+    border-width: thick;
+    display: table;
+    border-color: maroon;
+    border-style: dotted;
+    /*border-collapse: collapse;*/
+    border-spacing: 5px;
+}
+
+
+table, tr, th, td {
+    border: 1px Black solid;
+    border-collapse: collapse;
+    padding: 5px;
+    color: black;
+}
+
+th, td {
+    text-align: center;
+}
+
+th {
+    font-size: larger;
+    background-color: white;
+}
+
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+tr:nth-child(odd) {
+    background-color: grey;
+}

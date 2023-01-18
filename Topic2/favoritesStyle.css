@@ -1,0 +1,172 @@
+/*Favorites website style sheet sorted: Justin 3rd: 1/9/2023*/
+
+/*Customize the main heading to look almost like a neon sign*/
+h1 {
+/*Aquamarine Color Font*/
+    color: #8CFBDE;
+/*Dark Byzantium Background*/
+    background-color: #473144;
+/*This keeps the background tight to the element content*/
+    display: table;
+/*This moves the element to the center of the site*/
+    margin: 0px auto 0px auto;
+/*This moves the tezt to the center of the element*/
+    text-align: center;
+/*Use a relative font size for the accessibility*/
+    font-size: xxx-large;
+/*Set the header font types*/
+    font-family: Arial, Georgia, "Times New Roman", sans-serif;
+/*Choose a border style that can bring an element of neon sign*/
+    border-style: double;
+/*Round the edges by alot to seem lik tubes are being bent*/
+    border-radius: 10px;
+/*Make the border thick enough to create contrast to background colors*/
+    border-width: 5px;
+/*This creates even spacing from the text, allowing the contrast to be seen more clearly*/
+    border-spacing: 10px;
+/*Tickle Me Pink is a perfect neon sign color*/
+    border-color: #FF7B9C;
+}
+
+/*Style each favorites' section header*/
+h2 {
+    font-size: xx-large;
+/*Brink Pink continues the neon effect*/
+    color: #F7567C;
+/*Bring the header very close to the relevant text, better readability*/
+    margin-bottom: 10px;
+}
+
+/*Style the main core text used to fill document*/
+body {
+/*Make the website's background color Jet*/
+    background-color: #343434;
+    font-family: Helvetica, Calibri, sans-serif;
+}
+
+/*style all paragraphs in the entire website*/
+p {
+/*Bring each new paragraph very close to the header, allowing for cleaere subject heading connections*/
+    margin-top: -10px;
+/*Make all text Gainsboro*/
+    color: #DFDFDF;
+    font-size: large;
+}
+
+
+/*Advanced CSS link details from W3 Schools:
+    https://www.w3schools.com/css/css_link.asp*/
+
+/*Change all link styles*/
+a:link {
+    color: cornflowerblue;
+    text-underline: cornflowerblue;
+/*Keep the underline on unclicked links*/
+    text-decoration: underline;
+}
+
+a:visited {
+    color: mediumturquoise;
+/*When clicked, add a double underline*/
+    text-decoration: double;
+}
+
+/*When hovering over a link*/
+a:hover {
+/*Change the color to a bright green to keep the feeling of neon alive!*/
+    color: lawngreen;
+/*Remove the underline*/
+    text-decoration: none;
+}
+
+/*When you click a link it will turn bright white*/
+a:active {
+    color: white;
+    text-decoration: none;
+}
+
+/*!*this allows me to set the links as buttons, this also combines link types*!*/
+/*a:link, a:visited {*/
+/*    background-color: #f44336;*/
+/*    color: white;*/
+/*    padding: 14px 25px;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    display: inline-block;*/
+/*}*/
+
+/*a:hover, a:active {*/
+/*    background-color: red;*/
+/*}*/
+
+/*Customize the unordered list*/
+ul {
+    /* Make background of unordered list . */
+    background-color: #042A2B;
+    border-style: groove;
+    border-color: aqua;
+    color: #FFC759;
+    display: inline-block;
+    margin-top: -15px;
+}
+
+/*Customize List Item*/
+li {
+    list-style-type: square;
+    font-size: 18px;
+    margin: 7px;
+    margin-left: -10px;
+
+}
+
+/*Customize the paragraph above the unordered list*/
+#New-Favorite-Foods {
+    font-size: x-large;
+/*Steel Pink*/
+    color: #E708D8;
+/*Shift the label to rest evenly over the unordered list*/
+    margin-left: 7px;
+    text-decoration: underline;
+}
+
+/*Add round bullets to odd numbered items on the unordered list*/
+.Round-Bullet {
+    list-style-type: circle;
+}
+
+
+#Page-Title {
+    text-shadow: 0px 0px 20px magenta;
+}
+
+#Favorite-Song-Title {
+    text-shadow: 0px 0px 10px #DCEDFF;
+}
+
+.Favorite {
+    /*margin: 10px;*/
+    padding-left: 15px;
+    padding-right: 15px;
+    /*This keeps the background tight to the element content*/
+    display: table;
+    /*This moves the element to the center of the site*/
+    margin: 20px auto auto auto;
+    /*This moves the tezt to the center of the element*/
+}
+
+#Movie {
+    border: 5px purple dashed;
+}
+
+#Music {
+    border: 5px lightpink dotted;
+}
+
+#Food {
+    border: 5px yellowgreen solid;
+}
+
+#Food-List {
+    /*This keeps the background tight to the element content*/
+    padding-top: 10px;
+}

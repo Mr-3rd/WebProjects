@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title id="Page-Title">Feedback Dropbox</title>
+
+
+    <!--    add two meta elements to your page:-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--    add bootstrap framework to html file through link-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <!--    font import-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@600&family=Merriweather+Sans&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+
+    <!--    custom style-->
+    <link rel="stylesheet" href="StudentFeedback.css" type="text/css">
+
+</head>
+
+
+<body class="m-3">
+
+<form>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron ml-3 mr-3 pb-2 pt-2">
+                    <h1 id="Page-Header">Please Provide Student Feedback</h1>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="ml-4">
+                    <p>As a student, your suggestions and feedback are very important to our team.</p>
+                    <p>Please use this form to share your feedback.</p>
+                    <p>Include your contact information to receive feedback response from our team.</p>
+                    <p>Thank You!</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-10 col-md-6">
+                <div class="ml-3">
+                    <br>
+                    <label for="name">Enter Name:</label> <input id="name" class="form-control" name="student-name" type="text" value="You can remain Anonymous" >
+                    <br>
+                </div>
+<!--            </div>-->
+
+<!--            <div class="col-12 col-sm-6">-->
+                <div class="ml-3">
+                    <label>Enter Email: </label> <input id="email" class="form-control" name="student-email" type="email">
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-10 col-md-8">
+                <div class="ml-3 mr-3">
+                    <br> <label for="feedback">Student Feedback:</label>
+                    <br> <textarea id="feedback" class="form-control" name="student-feedback" required></textarea>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-4">
+                <div class="ml-3 mt-3">
+                    <br>Current Student:
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="current-student" id="yes" value="Yes" checked>
+                        <label class="form-check-label" for="yes">
+                            Yes
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="current-student" id="no" value="No">
+                        <label class="form-check-label" for="no">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-sm-8 col-md-6">
+                <div class="pl-5 pr-5 mt-5">
+                    <input id="submit" type="submit" class="btn btn-secondary btn-lg btn-block" value="Submit Feedback">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</form>
+
+</body>
+</html>

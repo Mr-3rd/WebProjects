@@ -1,0 +1,28 @@
+/*Feedback form styling color and attributes*/
+
+body {
+    color: black;
+    font-family: 'Merriweather Sans', sans-serif;
+    background-color: #EEF0F2;
+    font-size: large;
+}
+
+.jumbotron {
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #444444;
+    color: white;
+    border-radius: 25px;
+}
+
+#submit {
+    font-family: 'Khula', sans-serif;
+    font-size: x-large;
+    color: #FDFFF7;
+    background-color: #5F5B6B;
+    border-radius: 30px;
+}
+
+.form-check {
+    display: block;
+}
