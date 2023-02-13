@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regex Form</title>
+</head>
+<body>
+
+<form action="" onsubmit="validate()">
+  <input type="text"id="phone-number" placeholder="phone number"/> <br>
+  <input type="text" id="postal-code" placeholder="postal code" /><br>
+  <input type="submit" />
+</form>
+
+<script>
+  function validate()
+  {
+    let phoneNumber = document.getElementById('phone-number').value;
+    const phoneRGEX = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+    const phoneResult = phoneRGEX.test(phoneNumber);
+    alert("phone:"+phoneResult );
+  }
+</script>
+
+</body>
+</html>

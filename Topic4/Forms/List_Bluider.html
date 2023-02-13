@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>List Builder</title>
+  <link rel="stylesheet" type="text/css" href="listBuilder.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<!--Configure a grid of divisions to enact CSS grids with Animation-->
+  <div id="grid">
+<!--    Set the objects on the left side of the browser-->
+    <div id="left">
+      <p><span id="instructions">Enter text to create a list:</span></p>
+        <label style="display: none" for="new-list-item">Enter List Item:</label>
+        <input id="new-list-item">
+      <button id="add-list-item">Add Item</button>
+      <button id="clear-list">Clear All Items</button>
+    </div>
+<!--    Set the objects on the left side of the browser-->
+    <div id="right">
+      <ul id="list-of-entries">
+<!--        This empty list is populated by user entries-->
+      </ul>
+    </div>
+  </div>
+
+
+<script>
+
+  // Collect the various HTML elements and assign them to variables for manipulation
+  let listItem = document.querySelector('#new-list-item')
+  let addItemButton = document.querySelector('#add-list-item')
+  let listOfEntries = document.querySelector('#list-of-entries')
+  let addItemEnterKey = document.querySelector('#new-list-item')
+  let clearButton = document.querySelector('#clear-list')
+  let instructionsMessage = document.querySelector("#instructions")
+  // Store the Instructions HTML Span element in a variable for manipulation
+  let simpleMessage = instructionsMessage.innerHTML;
+
+  // Create a function that adds a li element to the ul element labeled "list-of-entries"
+  function addListItem () {
+    // Collect the user text entry
+    let newItem = listItem.value
+    // If the entry is less than 1 character or blank
+    if (newItem.length < 1 || newItem.value === "") {
+      alert("You must enter a list item.")
+      // When the user types more than 50 characters, show an alert
+    } else if (newItem.length > 50) {
+      alert("List items cannot exceed 50 characters.")
+    } else {
+      // Everything else will pass our validation and become a list item
+      let newListItem = document.createElement('li')
+      newListItem.innerHTML = newItem
+      listOfEntries.appendChild(newListItem)
+      // This blanks out the text input
+      listItem.value = ''
+    }
+  }
+
+  // Create a function that checks for the list item count then either:
+  function checkLiCount () {
+    // 1. Add the list item if there are less than ten li elements
+    let listItemCount = document.getElementsByTagName('li').length
+    if (listItemCount <= 10) {
+      addListItem()
+      // 2. Ask the user if they want to clear the list
+    } else {
+      let clearList = window.confirm("List Builder is limited to ten items. \n Would you like to clear the list?")
+      if (clearList) {
+        // 3. Clear the list
+        clearListItems()
+      } else {
+        // 3. Change the instructions to be clear on how to add more li elements
+        instructionsMessage.innerHTML = simpleMessage + " Please use the Clear Button to add more items to the list."
+      }
+    }
+  }
+
+  // Create a function that clears all the list items and ensures the instructions are the original, simple text
+  function clearListItems () {
+      let listItemsToRemove = document.querySelectorAll("li")
+      listItemsToRemove.forEach(function (eachListItem) {
+          eachListItem.remove()
+      })
+      instructionsMessage.innerHTML = simpleMessage;
+  }
+
+  // Turn on the button to check the list count and add the list item accordingly
+  addItemButton.addEventListener('click', checkLiCount)
+
+  // Set the Text Entry Box to allow the enter key to add items to the list
+  addItemEnterKey.addEventListener('keypress', function(key) {
+    if (key.key === 'Enter') {
+      checkLiCount()
+    }
+  })
+
+  // Turn on the clear button to remove all items from the list
+  clearButton.addEventListener('click', clearListItems)
+
+</script>
+
+</body>
+</html>

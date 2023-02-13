@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Club Membership</title>
+
+    <style>
+
+        .selected {
+            text-decoration: line-through ;
+            font-style: italic;
+            color: gray;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 5px 5px 0px;
+            box-sizing: border-box;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>Student Club Roster</h1>
+
+<h2>Add Students</h2>
+
+<label for="student-name">Student Name</label><input id="student-name" name="student-name">
+<br>
+<label for="student-id">Student ID</label><input id="student-id" name="student-id">
+<br>
+<label for="student-gpa">Student GPA</label><input id="student-gpa" name="student-gpa" type="number">
+<br>
+<button id="add-student">Add Student</button>
+
+<h2>Student List</h2>
+
+<p>There are
+    <span id="student-count">
+          <!-- use JavaScript to count the number of students, and show here -->
+        </span>
+    student(s) in the club.</p>
+
+
+<ul id="student-list">
+    <!-- use JavaScript to create li elements  -->
+</ul>
+
+<button id="remove-selected-students">Remove selected students</button>
+
+<script>
+
+    // Display the number of students in the student list span id at page load
+
+    // define the function to count how many li items are present and change the span text value
+    function studentCount () {
+        let spanStudentCount = document.querySelector('#student-count')
+        let numOfStudents = document.getElementsByTagName('li').length
+        spanStudentCount.innerText = numOfStudents.toString()
+    }
+    // call the function to update the text
+    studentCount()
+
+
+    // create the HTML input objects for manipulation
+    let entryStudentName = document.querySelector('#student-name')
+    let entryStudentId = document.querySelector('#student-id')
+    let entryStudentGpa = document.querySelector('#student-gpa')
+
+    // create the ul object to store the student club members
+    let listOfStudents = document.querySelector('#student-list')
+
+    // configure a blank alert message
+    let alertMessage = "";
+
+    // configure the buttons for action reactions
+    let studentAddButton = document.querySelector('#add-student')
+    let studentRemoverButton = document.querySelector('#remove-selected-students')
+
+    // set a listener to engage with the add button
+    studentAddButton.addEventListener('click', function() {
+
+        // setup variables to represent the values of the entry objects
+        let studentName = entryStudentName.value
+        let studentId = entryStudentId.value
+        let studentGPA = entryStudentGpa.value
+
+        // Note: Braggadocios, I designed the REGEX expressions myself-solved through tireless trial and error and research
+
+        // design a regex that validates full names:
+        // like "Juan Ortega Y Gasset" or "Charles Batz-Castelmore d'Artagnan".
+        // (try spelling Charles with a lower case c)
+        let studentNameREGEX2 = /^[A-Z][a-z]+ |'\|-[A-Z][a-z]+[A-Z][a-z]+ |'\|-[A-Z][a-z]+$/;
+        let studentNameResult = studentNameREGEX2.test(studentName)
+        // Check if a value is present in the student ID entry
+        let studentIdResult = studentId.length > 0
+        // Design a Regular Expression that only allows a user to enter 0 - .99 - 4.00,
+        // while excluding any value over 4.
+        let studentGPAREGEX = /^[0-3]?(\.[0-9]{1,2})?$|^4(\.0{1,2})?$/;
+        let studentGPAResult = studentGPAREGEX.test(studentGPA)
+
+        // If the names are not correctly entered, add this to the error message
+        if (!studentNameResult) {
+            alertMessage = alertMessage + "Please enter a capitalized First and Last Name, seperated by a space. \n"
+        }
+
+        // if a value is not present in student ID add this to the error message
+        if (!studentIdResult) {
+            alertMessage = alertMessage + "Please enter a Student Id. \n"
+        }
+
+        // if the GPA does not match the REGEX add this to the error message
+        // You must add an "or" statement to verify that the regex is not blank
+        if (!studentGPAResult || studentGPA === '') {
+            alertMessage = alertMessage + 'Please enter a valid GPA. (Maximum of 4) ' +
+                'You may include a period for results like "3.9" or "3.79"'
+        }
+
+        // if any of the validation failures are present, trigger a error, reset the message and return to entry.
+        if (!studentGPAResult || studentGPA === '' || !studentIdResult || !studentNameResult) {
+            alert(alertMessage)
+            alertMessage = ""
+        }
+        // If all validations succeed
+        else {
+
+            // Create a blank new list item.
+            let newStudentLi = document.createElement('li')
+            // utilize a template string to populate the Club Roster using the valid entries
+            newStudentLi.innerHTML = `${studentName}, id: ${studentId}, GPA: ${studentGPA}`;
+
+            // Creat an event listener for each list item created during the add-button click
+            newStudentLi.addEventListener('click', function () {
+                // collect the current class of the clicked li item
+                let currentClass = newStudentLi.getAttribute('class')
+                // anything not in the class selected gets changed to selected, anything
+                // in the class selected gets its class removed
+                if (currentClass !== 'selected') {
+                    newStudentLi.setAttribute('class', 'selected')
+                } else {
+                    newStudentLi.removeAttribute('class')
+                }
+            })
+
+            // add the validated object with an event listened to the list of students
+            listOfStudents.appendChild(newStudentLi)
+            // reset the entry fields to blank
+            entryStudentName.value = ""
+            entryStudentId.value = ""
+            entryStudentGpa.value = ""
+            // reset the student count
+            studentCount()
+        }
+
+    })
+
+    // create an event listener to react to the remove selected button
+    studentRemoverButton.addEventListener('click', function() {
+        // collect all HTML objects with the class selected applied
+        let allSelectedStudents = document.getElementsByClassName('selected')
+
+        // While that object has any elements within it
+        while (allSelectedStudents.length > 0) {
+            // Delete the first object until there are no longer elements in the first location
+            allSelectedStudents[0].parentNode.removeChild(allSelectedStudents[0])
+        }
+
+        // once all selected objects have been deleted, reset the count
+        studentCount()
+    })
+
+
+    /* Add the following functionality to this page
+    [Note on HTML element notation: span#student-count means the span element with id="student-count" ]
+    When the page loads:
+        * Using JavaScript, display 0 in the span#student-count  (1pt)
+
+        * Add an event listener so that when button#add-students is clicked:
+            - Read the value from the student-name input, save in a variable. If the name is not entered, show an alert error message and return. (1pt)
+            - Read the value from the student-id input, save in a variable. If the id is not entered, show an alert error message and return. (1pt)
+            - Read the value from the student-gpa input, save in a variable. If the GPA is not entered, or is not in the range 0-4, show an alert error message and return.  (1pt)
+            - Create a new li element (1pt)
+            - Set the innerHTML of the li element to a string containing the student's name, id, and GPA  (1pt)
+                for example "Beyonce Knowles, id: aa1234bb, GPA 3.8"
+                Use a template string to generate this string
+            - Add a click event handler to the new li element.  (3pt)
+            - When the li element is clicked, add the class="selected" to that li element.
+            - When that li element is clicked again, remove the class="selected" from that li element
+                In other words, clicking a li element will toggle the selected class. https://www.w3schools.com/howto/howto_js_toggle_class.asp
+            - Add the new li element to ul#student-list element (1pt)
+            - Clear the values of the three input elements (1pt)
+            - Update the span#student-count value to the new number of students (1pt)
+
+        * Add an event listener so that when button#remove-selected-students is clicked:
+            - Remove all of the elements with the class="selected" from the list.   (3pt)
+            - Using the remove() function on an element will remove it. Example https://jsfiddle.net/rk9pm4vg/
+
+        You should not need to modify any of the HTML.
+    */
+
+</script>
+
+</body>
+</html>

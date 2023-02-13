@@ -1,0 +1,44 @@
+/*List Builder Stylesheet*/
+
+    /*fill the website (White border occurs without this line)*/
+body {
+    margin: 0;
+}
+
+/*Set the buttons to display on top of each other with spacing*/
+button {
+    display: block;
+    margin-top: 20px;
+}
+
+/*This is a type of measurement referring to Viewer Height (VH)*/
+#grid {
+    height: 100vh;
+}
+
+/*Set the graphic qualities of the left pane. I included padding to keep the buttons and input centered*/
+#left {
+    background: #6A5B6E;
+    padding: 30%;
+    color: #F6F7EB;
+}
+
+/*Set the graphics setting for the right side of the grid*/
+#right {
+    padding: 20%;
+    background: navajowhite;
+    border: 3rem solid rgb(0 0 0 / 30%);
+}
+
+/* This allows the grid to appear to have animation (Bottom of Cream Border)
+ as the transition expands the window as the window adjusts sizes.*/
+#grid {
+    transition: 300ms;
+    display: grid;
+    grid-template-columns: var(--left, 50%) auto;
+}
+
+/*Ensure the instructions appear as large letters*/
+#instructions {
+    font-size: large;
+}

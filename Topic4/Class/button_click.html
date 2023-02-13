@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Button Click</title>
+</head>
+<body>
+
+<!-- Write your HTML content here -->
+<button>Click Here!</button>
+
+<script>
+    // Write your script here
+
+    // find the button element
+    let button = document.querySelector('button')
+
+    // add an event listener for clicks, include callback
+    // the callback function runs when the event occurs
+    // Add listener, then action
+    button.addEventListener('click', function () {
+        alert('You clicked me?!')
+        button.style.backgroundColor = 'red';
+    })
+
+    // Alternatively:
+    // set up the function first
+
+    function showAlert () {
+        // alert('function: You clicked me?!')
+        // button.remove();
+        button.innerHTML = 'Clicked Button ' + add(21, 40);
+    }
+    // add an event listener for clicks
+    button.addEventListener('mouseover', showAlert)
+
+    function add(a, b) {
+        let sum = a + b;
+        return sum;
+    }
+
+
+</script>
+
+</body>
+</html>

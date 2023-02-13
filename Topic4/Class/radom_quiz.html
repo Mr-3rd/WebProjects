@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quiz game</title>
+</head>
+<body>
+
+<p id="question">What color is my favorite?</p>
+
+<button id="1" class="answer">Sky Blue</button>
+<button id="2" class="answer">Pale Yellow</button>
+<button id="3" class="answer">Soft Pink</button>
+
+<!--De-comment the next line to see dynamic answers in action-->
+
+<!--<button id="4" class="answer">Ultra Purple</button>-->
+
+<p id="result"></p>
+
+<!--id name changing script - method to select which button is
+    the favorite color based on a random choice of number-->
+<script>
+
+    // create a blank list storing all the id numbers
+    let idOfColors = []
+    // select all the elements with an answer class
+    let answerElements = document.querySelectorAll('.answer');
+    // pull the id number from each answer element and store it in a list
+    answerElements.forEach(function (element) {
+        let idNumber = element.id
+        idOfColors.push(idNumber)
+    })
+
+    // loop over the list of numbers
+    for (let idLocation = 1; idLocation < idOfColors.length + 1; idLocation++) {
+        // Change all buttons into wrong answers
+        let idName = document.getElementById(idLocation.toString());
+        idName.setAttribute("class", "wrong-answer");
+    }
+
+    // create a random number to choose one of the three id numbers by random
+    let elementIdNumber = idOfColors[Math.floor(Math.random() * idOfColors.length)];
+    // set the id name based on one of the three numbers
+    let randomId = document.getElementById(elementIdNumber.toString());
+    // change the id attribute of the random button chosen to
+    // be the favorite color for button listening
+    randomId.setAttribute("id", "favorite-color");
+    randomId.setAttribute("class", "correct-answer")
+
+    // set an action listener for the correct answer with this button register
+    let correctAnswerButton = document.querySelector('#favorite-color');
+    // troubleshooting console log
+    console.log(correctAnswerButton)
+
+    // set a default background and text color to reset the buttons on clicks
+    let defaultButtonBackground = correctAnswerButton.style.background
+    let defaultButtonColor = correctAnswerButton.style.color
+
+    // turn the correct answer message display into a dom object
+    // that can be manipulated
+    let result = document.querySelector("#result")
+
+    // Set an event listener for clicks that will change the message
+    // display and the button formatting
+    correctAnswerButton.addEventListener('click', function () {
+        result.innerHTML = "Correct Answer!"
+        correctAnswerButton.style.backgroundColor = 'black'
+        correctAnswerButton.style.color = "white"
+        for (let x=0; x < wrongAnswerButtons.length; x++) {
+            let wrongAnswerButton = wrongAnswerButtons[x];
+            wrongAnswerButton.style.background = defaultButtonBackground;
+            wrongAnswerButton.style.color = defaultButtonColor;
+        }
+    })
+
+    // get a list of nodes that represent buttons
+    let wrongAnswerButtons = document.querySelectorAll('.wrong-answer')
+    // troubleshooting console log
+    console.log(wrongAnswerButtons)
+
+    // Loop over all the buttons found in the previous list
+    wrongAnswerButtons.forEach(function (wrongAnswerButton) {
+        // now that you have the individual button, set event listener to
+        // change the button formatting
+        wrongAnswerButton.addEventListener('click', function () {
+            result.innerHTML = "Wrong Answer, try again!"
+            wrongAnswerButton.style.backgroundColor = 'Red'
+            wrongAnswerButton.style.color = "Yellow"
+            correctAnswerButton.style.background = defaultButtonBackground;
+            correctAnswerButton.style.color = defaultButtonColor
+        })
+    })
+
+</script>
+
+
+</body>
+</html>

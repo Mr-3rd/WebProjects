@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Template</title>
+</head>
+<body>
+
+<p id="mouse-me">Move the mouse here!</p>
+
+<script>
+
+    let message = document.querySelector("#mouse-me")
+
+    let mouseOverCount = 0
+    let mouseOutCount = 0
+
+    message.addEventListener('mouseover', function (){
+        mouseOverCount = mouseOverCount + 1;
+        if (mouseOverCount === 1) {
+            message.innerHTML = "Your mouse is on this message! Count: " + mouseOverCount
+        } else {
+            message.innerHTML = "Your mouse is on this message! Counts: " + mouseOverCount
+        }
+
+    })
+
+    message.addEventListener('mouseout', function () {
+        mouseOutCount = mouseOutCount + 1;
+        if (mouseOutCount === 1) {
+            message.innerHTML = "Your mouse is NOT on the message! Count: " + mouseOutCount
+        } else {
+            message.innerHTML = "Your mouse is NOT on the message! Counts: " + mouseOutCount
+        }
+
+    })
+
+</script>
+
+</body>
+</html>
