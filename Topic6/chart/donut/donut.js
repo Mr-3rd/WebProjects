@@ -76,14 +76,14 @@ addExpenseButton.addEventListener('click', function() {
 
 // TODO add event listener to click the Add Expense button when the enter key is pressed
 
-window.addEventListener('keydown' , function() {
-  if (event.KeyCode === 13) {
+window.addEventListener('keyup' , function(event) {
+  if (event.keyCode === 13) {  //Depreciated does not work!
+  // if (event.key === 'Enter') {
       let inputElements = [expenseNameInput, expenseAmountInput, addExpenseButton]
       if ( inputElements.includes(document.activeElement)) {
           addExpenseButton.click()
           expenseNameInput.focus()
       }
-
   }
 })
 
