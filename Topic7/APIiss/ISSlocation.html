@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ISS Location</title>
+
+
+
+    <!-- Leaflet script and CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+    <!-- Our stylesheet. Make sure the size of the map div is set before trying to draw the map.-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+<!--    connect to the javascript that creates the dynamic page-->
+    <script async defer src="fetch.js"></script>
+
+</head>
+
+<body>
+
+<!--Create a header-->
+  <h1>International Space Station Location over Earth</h1>
+
+<!--Set the container for the time the ISS location was pinged-->
+  <p id="time"></p>
+
+<!--Set a diver container to separate the ISS's lat and long over earth-->
+  <div>
+    <p><span id="iss-lat"></span></p>
+
+    <p><span id="iss-long"></span></p>
+  </div>
+
+<!--create a place to stick the map-->
+  <div id="iss-map"></div>
+<!--attribute the icon-->
+    <span id="iconAttribute">ISS icon by Viktor Korobkov from <a href="https://thenounproject.com/browse/icons/term/iss/" target="_blank" title="iss Icons">Noun Project</a></span>
+</body>
+</html>
