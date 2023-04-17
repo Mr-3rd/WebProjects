@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Name Input</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+
+<!--create the view to display the data generated below-->
+<div id="app">
+  <h1>{{ header }}</h1>
+  <label id="nameLabel" for="name">{{ nameLabel }}</label>
+
+<!--  Use v-model and associate the entry with a variable that can be dynamically manipulated-->
+  <input v-model="name" id="name">
+<!--  When the user enters text in the input box display the name message-->
+  <p v-if="name">
+    {{ nameMessage }}{{ name }}
+<!--    Add a button to clear all entries associating it with a method on click below-->
+    <button style="display: block; margin-top: 10px" v-on:click="clearName">{{clearButton}}</button>
+  </p>
+
+<!--  testing methods of validation here-->
+<!--  <p v-if="name.length > 2">-->
+<!--    {{ nameMessage2 }}{{ name }}-->
+<!--  </p>-->
+
+<!--  When no text is in the input, display a message for the user-->
+  <p v-else>
+    {{ noNameMessage }}
+  </p>
+</div>
+
+<script>
+
+  let app = Vue.createApp({
+    data() {
+      // return this set of data to the HTML above
+      return {
+        nameMessage: "Your name is ",
+        nameMessage2: "(2) Your name is ",
+        name: '',
+        nameLabel: "Please enter your name: ",
+        noNameMessage: "Please enter your name above!",
+        clearButton: "Clear Name",
+        header: "Vue Name Input"
+      }
+    },
+    // design a method to erase the name
+    methods: {
+      clearName() {
+        this.name = ""
+      }
+    }
+  })
+
+  app.mount('#app')
+
+</script>
+
+</body>
+</html>
