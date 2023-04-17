@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fist Vue Page</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+
+<!--  -->
+
+<!--View-->
+    <div id="app"> <!-- create the container that holds the Vue page template -->
+      <h1>{{ header }}</h1> <!-- create a dynamic header -->
+      <p>
+
+<!--Stash syntax-->
+<!--        {{ message }} -->
+<!--        {{ thisClass }}-->
+
+<!--        Add dynamically changing message with exclamation points-->
+        <div>
+            {{ messageWithExclaims }}
+        </div>
+
+      </p>
+
+<!--        Add the two buttons that will allow a user to add and remove exclaims-->
+      <button style="display: block" v-on:click="addExclamation">Add ! to message</button>
+      <button style="margin-top: 10px" v-on:click="removeAllExclaims">Remove all !</button>
+    </div>
+
+
+<!--Model-->
+    <script>
+
+      let app = Vue.createApp({
+          // Store the site data to be returned to the HTML
+        data() {
+          return {
+            message: 'hello User',
+            header: 'Hello Vue',
+            thisClass: 'Web Programming',
+            numberOfExclaims: 0,
+          }
+        },
+
+          // create the methods that will callback data on button clicks
+        methods: {
+
+            // Setting and resetting the number of exclamation points sets how many loops
+            // the computed data set will engage in
+
+          addExclamation() {
+            if (this.numberOfExclaims < 10) {
+              // this.message = this.message + "!"
+              // this.thisClass = this.thisClass + "!"
+              this.numberOfExclaims++
+            } else {
+              alert("Final Exclamation point has been added.")
+            }
+          },
+
+          removeAllExclaims() {
+            // this.message = 'hello User'
+            // this.thisClass = 'Web Programming'
+            this.numberOfExclaims = 0
+          }
+        },
+          computed: {
+
+            // Edit a new message below, retaining the integrity of the stock message without exclaims
+            messageWithExclaims() {
+                let messageWithPoints = this.message
+                let classWithPoints = this.thisClass
+
+                for (let x = 0; x < this.numberOfExclaims; x++) {
+                    messageWithPoints = messageWithPoints + "!"
+                    classWithPoints = classWithPoints + "!"
+                }
+
+                // Initiating a new line does not work in concatenation
+                return messageWithPoints + " " + classWithPoints;
+
+            }
+        }
+
+      })
+
+      // create the HTML using the edits from code in script
+      app.mount('#app')
+
+    </script>
+
+</body>
+</html>

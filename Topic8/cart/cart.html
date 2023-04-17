@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Toy Car Cart</title>
+
+  <script src="https://unpkg.com/vue@next"></script>
+
+<!--  Use a style block to add styles in an HTML file-->
+  <style>
+    /*customize the table*/
+    td, th {
+      width: 20%;
+      text-align: center
+    }
+
+    /*Change the color of the error message, the size of the font, and add a little space to the top*/
+    .error-message {
+      color: red;
+      font-size: small;
+      padding-top: 5px;
+    }
+  </style>
+
+</head>
+
+
+<body>
+
+<div id="app">
+
+  <h1>Diecast Car Dealer</h1>
+
+  <table>
+<!--    create a table header for my toy car shop-->
+    <tr>
+      <th>Toy</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Taxes</th>
+      <th>Total</th></tr>
+
+<!--    create the row of product sale details-->
+    <tr>
+      <td>{{ name }}</td>
+      <td>${{ price }}</td>
+<!--      use a v-model to set the quantity-->
+      <td>
+        <input type="number" id="quantity" v-model="quantity">
+<!--        create a dynamic error message if a quantity error is found-->
+        <div class="error-message" v-if="quantityError">{{ quantityError }}</div>
+      </td>
+
+<!--      use a v-if to display an error under the cst details if no valid quantity is entered-->
+      <td>
+        <div v-if="quantityError">
+          {{ countDisplay }}
+        </div>
+        <div v-else>
+          ${{ taxes }}
+        </div>
+      </td>
+
+      <td>
+        <div v-if="quantityError">
+          {{ countDisplay }}
+        </div>
+        <div v-else>
+          ${{ total }}
+        </div>
+        </td>
+    </tr>
+  </table>
+</div>
+
+<script>
+
+  let app = Vue.createApp({
+    data() {
+      return {
+        name: 'Matchbox',
+        quantity: 1,
+        taxes: 0,
+        price: 1.99,
+
+        // create data points for producing dynamic validations
+        maxCount: 15,
+        minCount: 1,
+        quantityError: '',
+        countDisplay: 'Invalid Quantity'
+      }
+    },
+    computed: {
+      total() {
+
+        // Test the user entry for a valid number
+        if (Number.isNaN(this.quantity)) {
+          this.quantityError = 'You must enter a number!'
+        }
+
+        // test a the entry to ensure it fits within a range
+        else if (this.quantity < this.minCount || this.quantity > this.maxCount) {
+          this.quantityError = `Enter a number between ${this.minCount} and ${this.maxCount}!`
+        }
+
+        // all valid quantities
+        else
+        {
+          // ensure no error message displays
+          this.quantityError = ''
+          // create a total price
+          let totalPrice = this.quantity * this.price
+          // create a tax value
+          let tax = totalPrice * .07
+          // display the total taxes
+          this.taxes = tax.toFixed(2)
+
+          // create and return a formatted total with taxes
+          totalPrice = totalPrice + tax
+          let formattedPrice = totalPrice.toFixed(2)
+          return formattedPrice
+        }
+      }
+    },
+  })
+
+  app.mount('#app')
+
+</script>
+
+</body>
+
+</html>

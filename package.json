@@ -1,0 +1,21 @@
+{
+  "name": "webprojects",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mr-3rd/WebProjects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mr-3rd/WebProjects/issues"
+  },
+  "homepage": "https://github.com/Mr-3rd/WebProjects#readme",
+  "description": ""
+}
