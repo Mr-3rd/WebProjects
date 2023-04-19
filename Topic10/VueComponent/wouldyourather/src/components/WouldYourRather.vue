@@ -36,14 +36,23 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
-  margin: 40px 0 0;
+  margin-bottom: 20px;
 }
 
 .wyr{
+  width: 500px; /* adjust as needed */
+  height: auto; /* same as width to create a square */
+  margin: 10px auto; /* centers the card */
+  text-align: left; /* left-aligns the text */
+  //text-align: center;
   border: 2px black dashed;
-  display: inline-table;
   padding: 20px;
   padding-top: 0px;
+  display: table;
+}
+
+label {
+  margin-right: 10px;
 }
 
 </style>
